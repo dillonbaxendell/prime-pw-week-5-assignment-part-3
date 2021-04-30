@@ -37,3 +37,21 @@ console.log( addToCollection( 'Days Are Gone', 'HAIM', 2013 ) );
 
 console.log(`Check to make sure the albums were added to my collection:`);
 console.log( collection );
+
+// - Add a function named `showCollection`. This function should:
+//   - Take in an array parameter. (This allows it to be reused to show any
+//     collection, like the results from the find or search.)
+//   - Console.log the number of items in the array.
+//   - Loop over the array and console.log each album's information formatted
+//     like: `TITLE by ARTIST, published in YEAR`.
+
+function showCollection( array ) {
+  console.log('In showCollection');
+  console.log( `This collection has ${array.length} objects.` );
+  for (let i = 0; i < array.length; i++) {
+    console.log( `${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}`);
+  }
+}
+
+console.log('Showing collection through showCollection function:');
+showCollection( collection );
