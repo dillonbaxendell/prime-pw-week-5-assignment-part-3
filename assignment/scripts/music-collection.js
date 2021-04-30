@@ -46,12 +46,38 @@ console.log( collection );
 //     like: `TITLE by ARTIST, published in YEAR`.
 
 function showCollection( array ) {
-  console.log('In showCollection');
-  console.log( `This collection has ${array.length} objects.` );
+  console.log('In showCollection'); // check to make sure we're in the function
+  console.log( `This collection has ${array.length} objects.` ); // logs how many objects are in the input array
   for (let i = 0; i < array.length; i++) {
     console.log( `${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}`);
-  }
-}
+  } // end for loop - runs through the input array to log each title, artist and year published for each
+} // end showCollection function
+
+// - Test the `showCollection` function.
 
 console.log('Showing collection through showCollection function:');
 showCollection( collection );
+
+// - Add a function named `findByArtist`. This function should:
+//   - Take in `artist` (a string) parameter
+//   - Create an array to hold any results, empty to start
+//   - Loop through the `collection` and add any objects with a matching artist to the array.
+//   - Return the array with the matching results. If no results are found, return an empty array.
+
+function findByArtist( artist ) {
+  console.log( 'In findByArtist' ); // check to make sure we're in the function
+  let byArtist = []; //create a new array to filter by artist
+  for (let i = 0; i < collection.length; i++) {
+    if (artist == collection[i].artist) {
+      byArtist.push( collection[i] );
+    } // a for loop that runs through the collection array and adds to the findByArtist
+      // array if the input artist matches the artist for each object
+  }
+  return byArtist; // returns new array
+} // end findByArtist function
+
+// - Test the `findByArtist` function. Make sure to test with an artist you know is in the collection,
+// as well as an artist you know is not in your collection. Check that for artists with multiple matches, all are found.
+
+console.log( 'Find Billie Eilish in my collection (expect 2 objects in the array):', findByArtist( 'Billie Eilish' ) );
+console.log( 'Find Childish Gambino in my collection (expect 0 objects in the array):', findByArtist( 'Childish Gambino' ) );
