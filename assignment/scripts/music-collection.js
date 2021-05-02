@@ -81,3 +81,31 @@ function findByArtist( artist ) {
 
 console.log( 'Find Billie Eilish in my collection (expect 2 objects in the array):', findByArtist( 'Billie Eilish' ) );
 console.log( 'Find Childish Gambino in my collection (expect 0 objects in the array):', findByArtist( 'Childish Gambino' ) );
+
+console.log( '****STRETCH GOALS****' );
+
+// - Create a function called `search`. This function should:
+//   - Take an input parameter for a search criteria object. The search criteria might look sosomething like this:
+//   ```
+//   { artist: 'Ray Charles', year: 1957 }
+//   ```
+//   - Return a new array of all items in the `collection` matching *all* of the search criteria.
+//   - If no results are found, return an empty array.
+//   - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
+
+function search( {artist: artist, year: year}, array ) {
+  console.log('In search function');
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array.artist === artist && array.yearPublished === year) {
+      newArray.push( array[i] );
+      return newArray;
+    } else if (array.artist !== artist && array.yearPublished !== year) {
+      return newArray;
+    } else {
+      return array;
+    }
+  }
+}
+
+console.log( search( {'artist': '', 'year':  }, collection ) );
